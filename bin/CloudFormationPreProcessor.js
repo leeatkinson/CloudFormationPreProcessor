@@ -6,6 +6,7 @@ console.log("CloudFormation Pre-Processor");
 
 var path = require("path");
 var fs = require("fs");
+
 var commander = require("commander");
 
 var libPath = path.join(path.dirname(fs.realpathSync(__filename)), "../lib/CloudFormationPreProcessor.js");
