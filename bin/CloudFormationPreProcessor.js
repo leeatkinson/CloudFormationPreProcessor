@@ -15,7 +15,7 @@ var lib = require(libPath);
 function collect(val, m) { m.push(val); return m; }
 
 commander
-.version("0.0.0")
+.version("0.0.1")
 .option("-r --region [region-name]", "AWS region [eu-west-1]", "eu-west-1")
 .option("-d --working-directory [working-directory]", "Working directory [current working directory]")
 .option("-f --config-file-pattern [config-file-pattern]", "Config file pattern [*.cfnpp]", collect, [ ])
