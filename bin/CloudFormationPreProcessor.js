@@ -12,7 +12,7 @@ var lib = require(libPath);
 
 function collect(o, a) { a.push(o); return a; }
 
-commander.description("CloudFormation Pre-Processor").version("1.1.0")
+commander.description("CloudFormation Pre-Processor").version("1.2.0")
 .option("-r --region [region-name]", "AWS region. [eu-west-1]", "eu-west-1")
 .option("-d --working-directory [working-directory]", "Working directory. [current working directory]")
 .option("-f --config-file-pattern [config-file-pattern]", "Config file pattern. [*.cfnpp]", collect, [ ])
