@@ -1,6 +1,6 @@
 {
   "name": "cloudformation-preprocessor",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A pre-processor for AWS CloudFormation",
   "main": "./lib/cfnpp.js",
   "preferGlobal": "true",
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/leeatkinson/CloudFormationPreProcessor",
   "dependencies": {
     "aws-sdk": "^2.0.0-rc.19",
+    "better-console": "^0.2.3",
     "commander": "^2.2.0",
     "empty-object": "^1.0.0",
     "foreach": "^2.0.4",
