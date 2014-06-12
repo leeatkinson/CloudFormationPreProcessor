@@ -1,7 +1,12 @@
 CloudFormation PreProcessor
 ===========================
 
-A pre-processsor for AWS CloudFormation. Currently, it is able to update to the current AMIs (e.g. the 'latest' Windows 2012 AMI from Amazon) and include files to be copied to instances via CFN-init. The definition of 'latest' is defined by sorting their names alphabetically and selecting the last. 
+A pre-processsor for AWS CloudFormation. 
+
+Features
+--------
+* Update to the current AMIs - for example, the 'latest' Windows 2012 AMI from Amazon. 'Latest' is determined by sorting their names alphabetically and selecting the last.
+* Include files to be copied to instances via CFN-init. 
 
 Preparation
 -----------
@@ -25,7 +30,7 @@ Create your CloudFormation template as normal. Make sure that AMI mappings in th
 Create a JSON file who's file path is the same as template but has an extra file extension. For example:
 
 Template = /Users/lee/Documents/MyTemplate.cloudformation
-Config = /Users/lee/Documents/MyTemplate.cloudformation.<whatever>
+Config = /Users/lee/Documents/MyTemplate.cloudformation.&lt;whatever&gt;
 
 The format of the config file is:
 
