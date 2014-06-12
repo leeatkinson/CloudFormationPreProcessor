@@ -1,11 +1,13 @@
 {
   "name": "cloudformation-preprocessor",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "A pre-processor for AWS CloudFormation",
-  "main": "./lib/cfnpp.js",
+  "author": "Lee Atkinson <lee@rocketindigo.com>",
+  "license": "Apache 2.0",
+  "main": "./lib/main.js",
   "preferGlobal": "true",
   "bin": {
-    "cfnpp": "./bin/CloudFormationPreProcessor.js"
+    "cfnpp": "./bin/main.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +19,6 @@
     "Preprocessor",
     "AMIs"
   ],
-  "author": "Lee Atkinson <lee@rocketindigo.com>",
-  "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/leeatkinson/CloudFormationPreProcessor/issues"
   },
