@@ -29,8 +29,8 @@ Create your CloudFormation template as normal. Make sure that AMI mappings in th
 
 Create a JSON file who's file path is the same as template but has an extra file extension. For example:
 
-Template = /Users/lee/Documents/MyTemplate.cloudformation
-Config = /Users/lee/Documents/MyTemplate.cloudformation.&lt;whatever&gt;
+* Template = /Users/lee/Documents/MyTemplate.cloudformation
+* Config = /Users/lee/Documents/MyTemplate.cloudformation.&lt;whatever&gt;
 
 The format of the config file is:
 
@@ -42,15 +42,18 @@ The format of the config file is:
         }
     },
     "fileIncludes": {
-        "<instance-or-launchconfig-name>": {
-            "config|<configset-name>": {
-                "/directory/foo.txt": "bar.txt"
+        "directory": "<relative-path-of-files>",
+        "resources": {
+            "<instance-or-launchconfig-name>": {
+                "config|<configset-name>": {
+                    "/directory/foo.txt": "bar.txt"
+                }
             }
         }
     }
 }
 ```
-The file to include (in the above case, bar.txt) is located relative to the template file (in the above case, bar.txt should be located in the same dirctory as the template).
+The file to include (in the above case, bar.txt) is located relative to the fileIncludes' 'directory' path, which in turn is relative to the template file.
 
 Execution
 ---------
