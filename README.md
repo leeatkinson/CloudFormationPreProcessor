@@ -49,12 +49,12 @@ The format of the config file is:
                 "config|<configset-name>": {
                     "files": {
                         "/directory/foo.txt": { 
-                            "path: "foo.txt" 
+                            "path": "foo.txt" 
                         }
                     },
                     "commands": {
                         "1-install-bar": { 
-                            "content: "run-installer" 
+                            "content": "run-installer" 
                         }
                     }
                 }
@@ -63,6 +63,7 @@ The format of the config file is:
     }
 }
 ```
+
 * If amiMappings.<name>.owner is unspecified, 'amazon' is used.
 * If includes.directory is unspecified, the template path, with '.includes' appended, is used.
 * The include path is located relative to the includes.directory path, which in turn is relative to the cloudformation template path.
