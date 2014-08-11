@@ -6,7 +6,7 @@ A pre-processsor for AWS CloudFormation.
 Features
 --------
 * Update to the current AMIs - for example, the 'latest' Windows 2012 AMI from Amazon. 'Latest' is determined by sorting their names alphabetically and selecting the last.
-* Include files to be copied to instances via CFN-init. 
+* Include CFN-init files and commands.
 
 Preparation
 -----------
@@ -37,23 +37,35 @@ The format of the config file is:
 ```json
 {
     "amiMappings": {
-        "<mapping-name>": {
-            "amiName": "Windows_Server-2012-RTM-English-64Bit-Base*"
+        "<name>": {
+            "owner": "<owner>",
+            "name": "Windows_Server-2012-RTM-English-64Bit-Base*"
         }
     },
-    "fileIncludes": {
+    "includes": {
         "directory": "<relative-path-of-files>",
         "resources": {
-            "<instance-or-launchconfig-name>": {
+            "<name>": {
                 "config|<configset-name>": {
-                    "/directory/foo.txt": "bar.txt"
+                    "files": {
+                        "/directory/foo.txt": { 
+                            "path: "foo.txt" 
+                        }
+                    },
+                    "commands": {
+                        "1-install-bar": { 
+                            "content: "run-installer" 
+                        }
+                    }
                 }
             }
         }
     }
 }
 ```
-The file to include (in the above case, bar.txt) is located relative to the fileIncludes' 'directory' path, which in turn is relative to the template file.
+* If amiMappings.<name>.owner is unspecified, 'amazon' is used.
+* If includes.directory is unspecified, the template path, with '.includes' appended, is used.
+* The include path is located relative to the includes.directory path, which in turn is relative to the cloudformation template path.
 
 Execution
 ---------
