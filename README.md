@@ -64,7 +64,7 @@ The format of the config file is:
 }
 ```
 
-* If amiMappings.<name>.owner is unspecified, 'amazon' is used.
+* If amiMappings.&lt;name&gt;.owner is unspecified, 'amazon' is used.
 * If includes.directory is unspecified, the template path, with '.includes' appended, is used.
 * The include path is located relative to the includes.directory path, which in turn is relative to the cloudformation template path.
 
