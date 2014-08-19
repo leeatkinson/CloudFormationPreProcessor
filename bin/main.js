@@ -16,7 +16,7 @@ var packageJson = require("../package.json");
 
 commander.description("CloudFormation Pre-Processor").version(packageJson.version)
 .option("-r --region [region-name]", "AWS region. [eu-west-1]", "eu-west-1")
-.option("-f --template-file-pattern [template-file-pattern]", "Template file pattern. [./*.cloudformation]", collect, [ ])
+.option("-t --template [template-file-pattern]", "Template file pattern. [./*.cloudformation]", collect, [ ])
 .parse(process.argv);
 
 console.log(commander.description() + " " + commander.version());
