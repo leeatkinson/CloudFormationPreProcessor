@@ -38,11 +38,13 @@ The format of the config file is:
 ```json
 {
     "mappings": {
-        "<name>": {
+        ...
+        "<mapping-name>": {
             "type": "ami",
             "ami:owner": "<owner>",
             "ami:name": "Windows_Server-2012-RTM-English-64Bit-Base*"
-        }
+        },
+        ...
     }
 }
 ```
