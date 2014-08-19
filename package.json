@@ -1,6 +1,6 @@
 {
   "name": "cloudformation-preprocessor",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "description": "A pre-processor for AWS CloudFormation",
   "author": "Lee Atkinson <lee@rocketindigo.com>",
   "license": "Apache 2.0",
@@ -27,8 +27,6 @@
     "aws-sdk": "^2.0.0-rc.19",
     "better-console": "^0.2.3",
     "commander": "^2.2.0",
-    "empty-object": "^1.0.0",
-    "foreach": "^2.0.4",
     "glob": "^4.0.2",
     "jsonfile": "^1.1.1"
   }
