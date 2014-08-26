@@ -1,6 +1,6 @@
 {
   "name": "cloudformation-preprocessor",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "A pre-processor for AWS CloudFormation",
   "author": "Lee Atkinson <lee@rocketindigo.com>",
   "license": "Apache 2.0",
