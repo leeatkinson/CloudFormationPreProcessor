@@ -10,14 +10,15 @@ var commander = require("commander");
 var libPath = path.join(path.dirname(fs.realpathSync(__filename)), "../lib/main.js");
 var lib = require(libPath);
 
-function collect(o, a) { a.push(o); return a; }
-
 var packageJson = require("../package.json");
 
 commander.description("CloudFormation Pre-Processor").version(packageJson.version)
-.option("-r --region [region-name]", "AWS region. [eu-west-1]", "eu-west-1")
-.option("-t --template [template-path-pattern]", "Template path pattern. [./*.cloudformation]", collect, [ ])
-.parse(process.argv);
+	.option("-r --region [region]", "AWS region. [eu-west-1]", "eu-west-1")
+	.option("-t --template-path-pattern [template-path-pattern]", "Template path pattern. [./*.cloudformation]", function(o, a) { 
+		a.push(o); 
+		return a; 
+	}, [ ])
+	.parse(process.argv);
 
 console.log(commander.description() + " " + commander.version());
 
