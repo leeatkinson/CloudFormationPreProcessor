@@ -77,3 +77,9 @@ To specify a different file pattern, use the -t or --template argument.
 ```bash
 cfnpp -t *.json
 ```
+
+By default, the region used to find all other regions is EU-WEST-1. If you want to change this, use the -r or --region argument
+
+```bash
+cfnpp -r us-east-1
+```
