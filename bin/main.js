@@ -16,13 +16,13 @@ var packageJson = require("../package.json");
 
 commander.description("CloudFormation Pre-Processor").version(packageJson.version)
 .option("-r --region [region-name]", "AWS region. [eu-west-1]", "eu-west-1")
-.option("-t --template [template-file-pattern]", "Template file pattern. [./*.cloudformation]", collect, [ ])
+.option("-t --template [template-path-pattern]", "Template path pattern. [./*.cloudformation]", collect, [ ])
 .parse(process.argv);
 
 console.log(commander.description() + " " + commander.version());
 
 lib(commander.region, 
-	commander.templateFilePattern, 
+	commander.templatePathPattern, 
 	function(error) {
 		console.log("Done!");
 	});
