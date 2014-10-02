@@ -1,7 +1,7 @@
 CloudFormation PreProcessor
 ===========================
 
-A pre-processsor for AWS CloudFormation. 
+An AWS CloudFormation template pre-processor
 
 Features
 --------
