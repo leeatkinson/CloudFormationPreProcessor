@@ -2,15 +2,11 @@
 
 "use strict";
 
-var path = require("path");
-var fs = require("fs");
-
-var commander = require("commander");
-
-var libPath = path.join(path.dirname(fs.realpathSync(__filename)), "../lib/main.js");
-var lib = require(libPath);
-
-var packageJson = require("../package.json");
+var path = require("path"),
+	fs = require("fs"),
+	commander = require("commander"),
+	lib = require(path.join(path.dirname(fs.realpathSync(__filename)), "../lib/main.js")),
+	packageJson = require("../package.json");
 
 commander.description("CloudFormation Pre-Processor").version(packageJson.version)
 	.usage("[options] <template-path-pattern> ...")
