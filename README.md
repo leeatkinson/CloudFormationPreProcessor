@@ -35,7 +35,7 @@ MyTemplate.cloudformation.d/
     mappings/
     resources/
 ```
-3) Currently, we only provide support for AMI mappings. Inside the mappings folder, create a JSON file with the same name as the mapping in the template and a '.json' extension. The format for an AMI mapping is:
+3) (Currently, the pre-processor only supports AMI mappings.) Inside the mappings folder, create a JSON file with the same name as the mapping in the template and a '.json' extension. The JSON for an AMI mapping is:
 
 ```json
 {
@@ -47,13 +47,13 @@ MyTemplate.cloudformation.d/
 }
 ```
 
-If ami.owner is unspecified, 'amazon' is used.
+If `ami.owner` is unspecified, 'amazon' is used.
 
 4) Create a folder under the 'resources' folder with the same name as the resource itself.
 
 `MyTemplate.cloudformation.d/resources/`
 
-5) Create a UserData' file in the above resource's directory and name it 'userdata'. If this file has a .ps1 or .cmd file extension, the content is wrapped with &lt;powershell&gt;&lt;/powershell&gt; or &lt;script&gt;&lt;/script&gt; tags as appropriate before including in the template.
+5) Create a UserData file in the above resource's directory and name it 'userdata'. If this file has a .ps1 or .cmd file extension, the content is wrapped with &lt;powershell&gt;&lt;/powershell&gt; or &lt;script&gt;&lt;/script&gt; tags as appropriate before including in the template.
 
 `MyTemplate.cloudformation.d/resources/MyInstance/userdata.ps1`
 
@@ -68,7 +68,7 @@ For specifying a drive letter for Windows instances use the $ character instead 
 
 `MyTemplate.cloudformation.d/resources/MyResource/configs/MyConfig/files/C$/folder/file`
 
-For specifying hidden files (without hiding them on you development machine) prtefix the name with '$.'.
+For specifying hidden files (without hiding them on you development machine) prefix the name with '$.'.
 
 `MyTemplate.cloudformation.d/resources/MyResource/configs/MyConfig/files/folder/$.file`
 
