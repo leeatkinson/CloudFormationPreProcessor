@@ -15,6 +15,6 @@ commander.description("CloudFormation Pre-Processor").version(packageJson.versio
 
 console.log(commander.description() + " " + commander.version());
 
-lib(commander.region, commander.args, function(error) {
+lib(commander.region, commander.args, function() {
 	console.log("Done!");
 });
