@@ -8,6 +8,18 @@ Features
 * Update to the current AMIs - for example, the 'latest' Windows 2012 AMI from Amazon. 'Latest' is determined by sorting their names alphabetically and selecting the last.
 * Include external files into UserData and CloudFormation-Init files and commands, parsing content for { "Ref", ...} and { "Fn::GetAttr" }.
 
+Clone
+-----
+```bash
+git clone https://github.com/leeatkinson/CloudFormationPreProcessor.git
+```
+
+Install
+-------
+```bash
+npm install --global cloudformation-preprocessor
+```
+
 Preparation
 -----------
 
