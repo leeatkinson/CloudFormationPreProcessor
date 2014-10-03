@@ -11,7 +11,7 @@ Features
 Preparation
 -----------
 
-Create your CloudFormation template as normal. Make sure that AMI mappings in the Mappings template section are of the format:
+1) Create your CloudFormation template as normal, with any AMI mappings you want updating in the following format:
 
 ```json
 {
@@ -27,41 +27,52 @@ Create your CloudFormation template as normal. Make sure that AMI mappings in th
 }
 ```
 
-If required, create a JSON file who's path is the same as template but has an extra .config extension. For file includes, create a folder who's path is the same as the template but has an extra .includes extension. For example:
+2) Create a folder who's path is the same as the template but has an extra '.d' extension, and create two subfolders - 'mappings' and 'resources'. 
 
-* Template = MyTemplate.cloudformation
-* Config = MyTemplate.cloudformation.config
-* Includes = MyTemplate.cloudformation.includes/
-
-The format of the config file is:
+```
+MyTemplate.cloudformation
+MyTemplate.cloudformation.d/
+    mappings/
+    resources/
+```
+3) Currently, we only provide support for AMI mappings. Inside the mappings folder, create a JSON file with the same name as the mapping in the template and a '.json' extension. The format for an AMI mapping is:
 
 ```json
 {
-    "mappings": {
-        ...
-        "<mapping-name>": {
-            "type": "ami",
-            "ami:owner": "<owner>",
-            "ami:name": "Windows_Server-2012-RTM-English-64Bit-Base*"
-        },
-        ...
+    "type": "ami",
+    "ami": {
+        "owner": "<owner>",
+        "name": "Windows_Server-2012-RTM-English-64Bit-Base*"
     }
 }
 ```
 
-If ami:owner is unspecified, 'amazon' is used.
+If ami.owner is unspecified, 'amazon' is used.
 
-The UserData include is placed directly in .includes directory and named 'userdata'. If the UserData file has a .ps1 or .cmd file extension, the content is wrapped with &lt;powershell&gt;&lt;/powershell&gt; or &lt;script&gt;&lt;/script&gt; tags as appropriate before including in the template.
+4) Create a folder under the 'resources' folder with the same name as the resource itself.
 
-For CloudFormation-Init files and commands, these are placed heirachically within the .includes directory, such as:
+`MyTemplate.cloudformation.d/resources/`
 
-MyTemplate.cloudformation.includes/&lt;resource-name&gt;/&lt;configs&gt;/&lt;config-name&gt;/&lt;files|commands&gt;/&lt;key&gt;/
+5) Create a UserData' file in the above resource's directory and name it 'userdata'. If this file has a .ps1 or .cmd file extension, the content is wrapped with &lt;powershell&gt;&lt;/powershell&gt; or &lt;script&gt;&lt;/script&gt; tags as appropriate before including in the template.
 
-For specifying a drive letter for Windows instances use the $ character instead of the : character (e.g. C$ instead of C:). For example, 'MyTemplate.cloudformation.includes/MyResource/MyConfig/files/C$/folder/file' will be used for the file with key 'C:/folder/file'.
+`MyTemplate.cloudformation.d/resources/MyInstance/userdata.ps1`
 
-For specifying hidden files (without hiding them on you development machine) use $. names. For example, 'MyTemplate.cloudformation.includes/MyResource/MyConfig/files/folder/$.file' will be used for the file with key 'folder/.file'.
+6) For CloudFormation-Init files and commands, these are placed heirachically within the resource's directory, such as:
 
-Within include files, you can use {{ref foo}} and {{att foo bar}} and these will be converted to the appropriate cloudformation template objects { "Ref": "foo" } and { "Fn:GetAtt": [ "foo", "bar" ] }.
+`MyTemplate.cloudformation.d/resources/MyResource/configs/MyConfig/files/key`
+`MyTemplate.cloudformation.d/resources/MyResource/configs/MyConfig/commands/key`
+
+where `key` is the file key in the CloudFormation template.
+
+For specifying a drive letter for Windows instances use the $ character instead of the : character (e.g. C$ instead of C:).
+
+`MyTemplate.cloudformation.d/resources/MyResource/configs/MyConfig/files/C$/folder/file`
+
+For specifying hidden files (without hiding them on you development machine) prtefix the name with '$.'.
+
+`MyTemplate.cloudformation.d/resources/MyResource/configs/MyConfig/files/folder/$.file`
+
+Within files and commands, you can use {{ref foo}} and {{att foo bar}} and these will be converted to the appropriate cloudformation template objects { "Ref": "foo" } and { "Fn:GetAtt": [ "foo", "bar" ] }.
 
 Execution
 ---------
@@ -72,10 +83,10 @@ You can execute the CloudFormation PreProcessor without any arguments, and it wi
 cfnpp
 ```
 
-To specify a different file pattern, use the -t or --template argument.
+To specify a different file pattern specify them as a argument.
 
 ```bash
-cfnpp -t *.json
+cfnpp *.json
 ```
 
 By default, the region used to find all other regions is EU-WEST-1. If you want to change this, use the -r or --region argument
