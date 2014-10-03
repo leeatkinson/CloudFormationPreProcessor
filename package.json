@@ -28,6 +28,7 @@
     "better-console": "^0.2.3",
     "commander": "^2.2.0",
     "glob": "^4.0.2",
-    "jsonfile": "^1.1.1"
+    "jsonfile": "^1.1.1",
+    "prettyjson": "^1.0.0"
   }
 }
