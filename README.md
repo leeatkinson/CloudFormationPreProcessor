@@ -27,7 +27,7 @@ Preparation
 }
 ```
 
-2) Create a folder who's path is the same as the template but has an extra '.d' extension, and create two subfolders - 'mappings' and 'resources'. 
+2) Create a folder whose path is the same as the template but has an extra '.d' extension, and create two subfolders - 'mappings' and 'resources'. 
 
 ```
 MyTemplate.cloudformation
