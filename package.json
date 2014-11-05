@@ -27,8 +27,9 @@
     "aws-sdk": "^2.0.0-rc.19",
     "better-console": "^0.2.3",
     "commander": "^2.2.0",
-    "glob": "^4.0.2",
+    "glob": "^4.0.6",
     "jsonfile": "^2.0.0",
-    "prettyjson": "^1.0.0"
+    "prettyjson": "^1.0.0",
+    "recursive-readdir": "^1.2.0"
   }
 }
