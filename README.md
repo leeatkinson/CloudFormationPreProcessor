@@ -31,8 +31,8 @@ Preparation
     "Mappings": {
         ...
         "<mapping-name>": {
-            "us-west-1": { "ID": "<ami-id>" },
-            "ap-southeast-1": { "ID": "<ami-id>" },
+            "us-west-1": { "id": "<ami-id>" },
+            "ap-southeast-1": { "id": "<ami-id>" },
             ...
         },
     ...
