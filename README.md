@@ -11,7 +11,7 @@ Features
 Clone
 -----
 ```bash
-git clone https://github.com/leeatkinson/CloudFormationPreProcessor.git
+git clone https://github.com/leeatkinson/aws-cloudformation-preprocess.git
 ```
 
 Install
@@ -98,11 +98,11 @@ cfnpp
 To specify a different file pattern specify them as a argument.
 
 ```bash
-cfnpp *.json
+aws-cloudformation-preprocess *.json
 ```
 
 By default, the region used to find all other regions is EU-WEST-1. If you want to change this, use the -r or --region argument
 
 ```bash
-cfnpp -r us-east-1
+aws-cloudformation-preprocess -r us-east-1
 ```
