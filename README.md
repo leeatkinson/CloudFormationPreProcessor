@@ -1,5 +1,5 @@
-CloudFormation PreProcessor
-===========================
+AWS CloudFormation PreProcessor
+===============================
 
 An AWS CloudFormation template pre-processor
 
